@@ -21,7 +21,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
-  
+ 
 }
 
 a {
@@ -53,16 +53,10 @@ img {
   justify-content: space-between;
 }
 
-/* options link active class */
-.nav-item-left[aria-expanded='true'] + .float-items {
-  display: block;
-}
+
 
 /* navbar expanded */
 .hamburger[aria-expanded='true'] + .nav-items {
   display: flex;
 }
 
-.btn-wrap button:last-child {
-  border: 1px solid white;
-}

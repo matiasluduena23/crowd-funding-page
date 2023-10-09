@@ -3,19 +3,20 @@ import { Image } from 'astro:assets';
 import logo from '../../assets/logo.svg';
 import NavItems from './NavItems.astro';
 import hamburger from '../../assets/icon-hamburger.svg';
+import closeMenu from '../../assets/icon-close-menu.svg';
 ---
 
 <nav class="flex">
     <a href="/" class="icon">
         <Image src={logo} alt="logo name" />
     </a>
-    <button>
+    <button class="hamburger" aria-controls="nav-items" aria-expanded="false">
         <Image src={hamburger} alt="hamburger icon" />
     </button>
     <NavItems />
 </nav>
 
-<style>
+<style define:vars={{ menu: `url(${closeMenu.src})` }}>
     nav {
         padding-block: 2rem;
         position: relative;
@@ -35,7 +36,12 @@ import hamburger from '../../assets/icon-hamburger.svg';
 
     @media (max-width: 800px) {
         button {
-            display: block;
+            display: inline-block;
+        }
+
+        .hamburger[aria-expanded='true'] > img {
+            content: var(--menu);
+            height: 100%;
         }
     }
 </style>
