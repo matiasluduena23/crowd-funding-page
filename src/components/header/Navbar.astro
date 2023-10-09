@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../../assets/logo.svg';
+import NavItems from './NavItems.astro';
+import hamburger from '../../assets/icon-hamburger.svg';
+---
+
+<nav class="flex">
+    <a href="/" class="icon">
+        <Image src={logo} alt="logo name" />
+    </a>
+    <button>
+        <Image src={hamburger} alt="hamburger icon" />
+    </button>
+    <NavItems />
+</nav>
+
+<style>
+    nav {
+        padding-block: 2rem;
+        position: relative;
+    }
+
+    button {
+        border: none;
+        background: transparent;
+        width: 28px;
+        height: 25px;
+        display: none;
+    }
+
+    button img {
+        width: 100%;
+    }
+
+    @media (max-width: 800px) {
+        button {
+            display: block;
+        }
+    }
+</style>

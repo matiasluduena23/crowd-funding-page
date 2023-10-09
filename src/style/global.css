@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap');
+
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+}
+
+:root {
+  --cyan-clr: hsl(176, 50%, 47%);
+  --cyan-dark-clr: hsl(176, 72%, 28%);
+
+  --dark-gray: hsl(0, 0%, 48%);
+
+
+}
+
+body {
+    font-family: 'Commissioner', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  
+}
+
+a {
+  text-decoration: none;
+  font-family: var(--ff-2);
+}
+
+a, button {
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1100px;
+  width: 90%;
+  margin-inline: auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* options link active class */
+.nav-item-left[aria-expanded='true'] + .float-items {
+  display: block;
+}
+
+/* navbar expanded */
+.hamburger[aria-expanded='true'] + .nav-items {
+  display: flex;
+}
+
+.btn-wrap button:last-child {
+  border: 1px solid white;
+}

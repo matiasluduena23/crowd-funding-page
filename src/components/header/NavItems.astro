@@ -1,0 +1,41 @@
+---
+
+---
+
+<ul class="flex">
+    <li><a href="">About</a></li>
+    <li><a href="">Discover</a></li>
+    <li><a href="">Get Started</a></li>
+</ul>
+
+<style>
+    .flex {
+        gap: 2rem;
+    }
+    a {
+        color: white;
+        font-weight: 400;
+        font-size: 20px;
+    }
+
+    @media (max-width: 800px) {
+        ul {
+            /* display: none; */
+            position: absolute;
+            top: 6rem;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            flex-direction: column;
+            align-items: start;
+            text-align: start;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        a {
+            color: black;
+            font-weight: 600;
+        }
+    }
+</style>
