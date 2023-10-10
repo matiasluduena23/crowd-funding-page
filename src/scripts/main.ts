@@ -29,12 +29,12 @@ btnBackProject?.addEventListener('click', () => {
 // close modal
 const closeModal = document.querySelector('.closeModal');
 closeModal?.addEventListener('click', () => {
-    modal?.close()
+    modal?.close();
 })
 
 // checked radio on click a tag
-const aTag = document.querySelector('.labelRadio');
-aTag?.addEventListener('click', (e) => {
+const aTags = document.querySelectorAll('.label-radio');
+aTags.forEach(item => item?.addEventListener('click', (e) => {
     e.target.parentElement.previousElementSibling.checked = true;
  
-}) 
+}))

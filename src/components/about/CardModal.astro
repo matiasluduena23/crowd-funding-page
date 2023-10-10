@@ -10,7 +10,7 @@ const { title, pledge, text, left, active } = Astro.props;
         <div class="card-head">
             <RadioInput  name="modal" id="radio"  active={active}/>
             <div class="wrap-title">
-                <a href="#"  >{title}</a>
+                <a href="#" class="label-radio" >{title}</a>
                 <p class="pledge">{pledge}</p>
             </div>
         </div>
