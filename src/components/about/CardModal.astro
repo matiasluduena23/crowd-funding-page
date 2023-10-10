@@ -1,0 +1,114 @@
+---
+import RadioInput from '../RadioInput.astro';
+import FormCardModal from './FormCardModal.astro';
+
+const { title, pledge, text, left, active } = Astro.props;
+---
+
+<article class={active ? 'active' : 'desactive'}>
+    <div class="card">
+        <div class="card-head">
+            <RadioInput  name="modal" id="radio"  active={active}/>
+            <div class="wrap-title">
+                <a href="#"  >{title}</a>
+                <p class="pledge">{pledge}</p>
+            </div>
+        </div>
+        <p class="text">
+            {text}
+        </p>
+        <div class="align">
+            <p class="left">{left}</p>
+            <span>left</span>
+        </div>
+    </div>
+    <FormCardModal active={active}/>
+</article>
+
+<style>
+    .desactive {
+        filter: opacity(0.3);
+    }
+
+    article {
+        border: 2px solid #e4e4e4;
+        border-radius: 10px;
+        margin-bottom: 1.5rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .card-head {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .card a {
+        font-size: 1rem;
+        font-weight: 600;
+        color: black;
+    }
+
+    .card a:hover {
+        color: var(--cyan-clr);
+    }
+
+    .desactive a:hover {
+        cursor: default;
+        
+    }
+
+    .pledge {
+        color: var(--cyan-clr);
+        font-weight: 500;
+    }
+
+    .text {
+        margin-block: 1rem;
+        color: var(--dark-gray);
+    }
+
+    .align {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 0.5rem;
+    }
+
+    .left {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    span {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--dark-gray);
+    }
+
+    @media (min-width: 768px) {
+        .card {
+            position: relative;
+        }
+
+        .wrap-title {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .text {
+            margin-left: 2.3rem;
+        }
+
+        .align {
+            position: absolute;
+            right: 15px;
+            top: 0;
+        }
+    }
+</style>

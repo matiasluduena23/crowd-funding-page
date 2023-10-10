@@ -1,0 +1,117 @@
+---
+
+---
+
+<section class="container">
+    <div class="grid">
+        <div class="col">
+            <p class="number">$89,914</p>
+            <p class="text">of $100,000 backed</p>
+        </div>
+        <div class="col">
+            <p class="number">5,007</p>
+            <p class="text">total backers</p>
+        </div>
+        <div class="col">
+            <p class="number">56</p>
+            <p class="text">days left</p>
+        </div>
+    </div>
+    <progress id="file" max="100" value="79"></progress>
+</section>
+
+<style>
+    section {
+        background-color: white;
+        text-align: center;
+        padding: 2rem 1rem;
+        border-radius: 10px;
+        max-width: 680px;
+        margin-block: 2rem;
+    }
+
+    .grid {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .col:first-child,
+    .col:nth-child(2) {
+        position: relative;
+        padding-bottom: 1.3rem;
+    }
+
+    .col:first-child::after,
+    .col:nth-child(2)::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-inline: auto;
+        height: 1px;
+        width: 70px;
+        background-color: lightgray;
+    }
+
+    .number {
+        color: black;
+        font-weight: 700;
+        font-size: 2.3rem;
+    }
+
+    .text {
+        color: var(--dark-gray);
+        font-size: 14px;
+    }
+
+    progress {
+        accent-color: var(--cyan-clr);
+        height: 12px;
+        border-radius: 10px;
+        -webkit-appearance: none;
+        border: none;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    progress::-webkit-progress-bar {
+        background-color: var(--cyan-clr);
+        border-radius: 10px;
+    }
+
+    progress::-webkit-progress-value {
+        background-color: var(--cyan-clr);
+
+        border-radius: 10px;
+    }
+
+    progress::-moz-progress-bar {
+        background-color: var(--cyan-clr);
+
+        border-radius: 10px;
+    }
+
+    @media (min-width: 769px) {
+        section {
+            padding-inline: 3rem;
+        }
+        .grid {
+            grid-template-columns: repeat(3, 1fr);
+            text-align: start;
+        }
+
+        .col:first-child::after,
+        .col:nth-child(2)::after {
+            right: 0;
+            left: auto;
+            top: 0;
+            bottom: 0;
+            margin-block: auto;
+            margin-inline: auto;
+            height: 70px;
+            width: 1px;
+            background-color: lightgray;
+        }
+    }
+</style>

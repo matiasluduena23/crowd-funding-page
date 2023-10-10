@@ -1,0 +1,37 @@
+---
+const { text, width, active, id } = Astro.props;
+---
+
+<button class={active ? 'active' : 'desactive'} id={id}>
+    {text}
+</button>
+
+
+<style define:vars={{ width }}>
+    button {
+        border: none;
+        background-color: var(--cyan-clr);
+        color: white;
+        font-weight: 600;
+        padding: 1rem 1.5rem;
+        border-radius: 25px;
+        font-family: var(--ff);
+        width: var(--width);
+        max-width: 240px;
+    }
+
+    button:hover {
+        background-color: var(--cyan-dark-clr);
+    }
+
+    .desactive {
+        background: var(--dark-gray);
+        color: white;
+        cursor: default;
+    }
+
+    .desactive:hover {
+        background: var(--dark-gray);
+        color: white;
+    }
+</style>

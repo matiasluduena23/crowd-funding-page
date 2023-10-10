@@ -13,20 +13,21 @@
 
   --dark-gray: hsl(0, 0%, 48%);
 
-
+--ff: 'Commissioner', sans-serif
 }
 
 body {
-    font-family: 'Commissioner', sans-serif;
+    font-family: var(--ff);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
+  background-color: #f4f4f4;
  
 }
 
 a {
   text-decoration: none;
-  font-family: var(--ff-2);
+
 }
 
 a, button {

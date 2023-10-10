@@ -1,5 +1,5 @@
+// hamburger menu control
 const hamburger = document.querySelector('.hamburger');
-
 
 hamburger?.addEventListener('click', () => {
     const isExpanded = JSON.parse(hamburger.getAttribute('aria-expanded')!);
@@ -11,3 +11,30 @@ window.addEventListener('resize', () =>{
         hamburger?.setAttribute('aria-expanded' ,'false')
     }
 })
+
+// add class to bookmark button
+const buttonBookmark = document.querySelector('.bookmark')
+
+buttonBookmark?.addEventListener('click', (e)=> {
+    buttonBookmark.classList.toggle('active')
+})
+
+// open modal
+const btnBackProject = document.querySelector('#back-project');
+const modal = document.querySelector('.modal');
+btnBackProject?.addEventListener('click', () => {
+    modal?.showModal()
+})
+
+// close modal
+const closeModal = document.querySelector('.closeModal');
+closeModal?.addEventListener('click', () => {
+    modal?.close()
+})
+
+// checked radio on click a tag
+const aTag = document.querySelector('.labelRadio');
+aTag?.addEventListener('click', (e) => {
+    e.target.parentElement.previousElementSibling.checked = true;
+ 
+}) 

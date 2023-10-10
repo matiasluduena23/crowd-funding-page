@@ -1,0 +1,99 @@
+---
+import RadioInput from '../RadioInput.astro';
+import CardModal from './CardModal.astro';
+import { getCollection } from 'astro:content';
+const allSupport = await getCollection('support');
+---
+
+<dialog  class="container modal">
+    <header class="flex">
+        <h1>Back this project</h1>
+        <a href="#" class="closeModal">
+            <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg"
+                ><g fill="#7a7a7a" fill-rule="evenodd"
+                    ><path d="M2.404.782l11.314 11.314-2.122 2.122L.282 2.904z"
+                    ></path><path
+                        d="M.282 12.096L11.596.782l2.122 2.122L2.404 14.218z"
+                    ></path></g
+                ></svg
+            ></a
+        >
+    </header>
+    <p class="header-p">
+        Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
+        the world?
+    </p>
+    <div class="card">
+        <div class="card-head">
+            <RadioInput  name="modal" id="" active="true"/>
+            <div class="wrap-title">
+                <a href="#" class="labelRadio">Pledge with no reward</a>
+                <p class="pledge"></p>
+            </div>
+            
+        </div>
+        <p>
+            Choose to support us without a reward if you simply believe in our
+            project. As a backer, you will be signed up to receive product
+            updates via email.
+        </p>
+    </div>
+    {
+        allSupport.map((card) => (
+            <CardModal
+                title={card.data.title}
+                pledge={card.data.pledge}
+                text={card.data.text}
+                left={card.data.left}
+                active={card.data.active}
+            />
+        ))
+    }
+</dialog>
+
+<style>
+    dialog {
+        padding: 1rem;
+        border: none;
+        border-radius: 20px;
+        max-width: 680px;
+        top: 5rem;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .header-p,
+    .card p {
+        color: var(--dark-gray);
+    }
+
+    .header-p {
+        margin-block: 1.3rem;
+    }
+
+    .card {
+        border: 2px solid #e4e4e4;
+        border-radius: 10px;
+        padding: 2rem 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .card-head {
+        display: flex;
+        justify-content: start;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .card a {
+        font-size: 1rem;
+        font-weight: 600;
+        color: black;
+    }
+
+    .card a:hover {
+        color: var(--cyan-clr);
+    }
+</style>

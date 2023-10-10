@@ -1,6 +1,9 @@
 ---
 import '../style/global.css';
 import Header from '../components/header/Header.astro';
+import CardTitle from '../components/CardTitle.astro';
+import CardDetail from '../components/CardDetail.astro';
+import About from '../components/about/About.astro';
 ---
 
 <html lang="en">
@@ -13,7 +16,9 @@ import Header from '../components/header/Header.astro';
     </head>
     <body>
         <Header />
-
+        <CardTitle />
+        <CardDetail />
+        <About />
         <script src="../scripts/main.ts"></script>
     </body>
 </html>
