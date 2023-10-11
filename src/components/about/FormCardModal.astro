@@ -1,23 +1,41 @@
 ---
 import Button from '../Button.astro';
 
-const { active } = Astro.props;
+const { active, reward, pledge } = Astro.props;
 ---
 
-<form>
-    <h3>Enter your pledge</h3>
+<form class="form-card-modal">
+    {reward ? <h3>Enter your pledge</h3> : <h3>Enter your email</h3>}
+
     <div class="flex">
-        <span>$</span>
-        <input type="number" name="" id="" />
-        <Button text="Continue" width="110px" active={active} />
+        <span class="error">fill this field</span>
+        {
+            reward ? (
+                <>
+                    <span class="money">$</span>
+                    <input type="number" name="" id="" value={pledge} />
+                </>
+            ) : (
+                <input type="email" name="" id="" />
+            )
+        }
+
+        <Button text="Continue" width="110px" active={active} id="btn-submit" />
     </div>
 </form>
 
 <style>
     form {
+        display: none;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
         padding: 1rem;
         border-top: 2px solid #e4e4e4;
+    }
+
+    .active {
+        display: flex;
     }
 
     h3 {
@@ -31,25 +49,44 @@ const { active } = Astro.props;
         position: relative;
     }
 
-    form span {
+    form .money {
         position: absolute;
         left: 20px;
-        top: 12px;
+        top: 14px;
         color: var(--dark-gray);
     }
 
-    input[type='number'] {
+    .error {
+        position: absolute;
+        bottom: -20px;
+        right: 140px;
+        font-size: 14px;
+        color: red;
+        display: none;
+    }
+
+    .error-active .error {
+        display: block;
+    }
+
+    .error-active input {
+        border: 1px solid red;
+    }
+
+    input {
         border: 1px solid var(--dark-gray);
         color: black;
         font-weight: 600;
+        font-size: 16px;
         padding: 1rem;
         padding-left: 2rem;
+        margin-right: 1rem;
         width: 110px;
         border-radius: 25px;
         font-family: var(--ff);
     }
 
-    input[type='number']:focus {
+    input:focus {
         outline: none !important;
         border: 1px solid var(--cyan-clr);
     }
@@ -68,13 +105,9 @@ const { active } = Astro.props;
 
     @media (min-width: 768px) {
         form {
-            display: flex;
+            flex-direction: row;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .flex {
-            gap: 1rem;
         }
 
         h3 {

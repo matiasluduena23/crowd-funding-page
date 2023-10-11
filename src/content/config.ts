@@ -6,10 +6,12 @@ const support = defineCollection({
   type: 'content', // v2.5.0 and later
   schema: z.object({
     title: z.string(),
-    pledge: z.string(),
+    pledgeTitle: z.string().optional(),
+    pledge: z.number().optional().nullable(),
     text: z.string(),
-    left: z.number(),
-    active: z.boolean()
+    left: z.number().optional().nullable(),
+    active: z.boolean(),
+    reward: z.boolean()
   }),
 });
 

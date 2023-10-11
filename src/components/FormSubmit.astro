@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import checkIcon from '../assets/icon-check.svg';
+import Button from '../components/Button.astro';
+---
+
+<dialog class="container flex form-submit">
+    <Image src={checkIcon} alt="check icon" />
+    <h2>Thanks for your support!</h2>
+    <p>
+        Your pledge brings us one step closer to sharing Mastercraft Bamboo
+        Monitor Riser worldwide. You will get an email once our campaign is
+        completed.
+    </p>
+    <Button text="Got it!" width="120px" active="true" />
+</dialog>
+
+<style>
+    .flex {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem 1rem;
+        border-radius: 10px;
+        border: none;
+        text-align: center;
+        max-width: 500px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        color: var(--dark-gray);
+    }
+</style>

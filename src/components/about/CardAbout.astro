@@ -1,26 +1,27 @@
 ---
 import Button from '../Button.astro';
-const { title, pledge, text, left, active } = Astro.props;
+const { data } = Astro.props;
 ---
 
-<article class={active ? 'active' : 'desactive'}>
+<article class={data.active ? 'active' : 'desactive'}>
     <div class="flex">
-        <h3>{title}</h3>
-        <p class="pledge">{pledge}</p>
+        <h3>{data.title}</h3>
+        <p class="pledge">{data.pledgeTitle}</p>
     </div>
     <p class="text">
-        {text}
+        {data.text}
     </p>
     <div class="flex">
         <div class="align">
-            <p class="left">{left}</p>
+            <p class="left">{data.left}</p>
             <span>left</span>
         </div>
 
         <Button
-            text={active ? 'Select Reward' : 'Out of Stock'}
+            text={data.active ? 'Select Reward' : 'Out of Stock'}
             width="160px"
-            active={active}
+            active={data.active}
+            id="btn-pledge"
         />
     </div>
 </article>

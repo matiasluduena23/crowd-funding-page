@@ -2,27 +2,46 @@
 import RadioInput from '../RadioInput.astro';
 import FormCardModal from './FormCardModal.astro';
 
-const { title, pledge, text, left, active } = Astro.props;
+const { data } = Astro.props;
 ---
 
-<article class={active ? 'active' : 'desactive'}>
+<article class={data.active ? 'active' : 'desactive'}>
     <div class="card">
         <div class="card-head">
-            <RadioInput  name="modal" id="radio"  active={active}/>
+            <RadioInput name="modal" id="radio" active={data.active} />
             <div class="wrap-title">
-                <a href="#" class="label-radio" >{title}</a>
-                <p class="pledge">{pledge}</p>
+                {
+                    data.active ? (
+                        <a href="#" class="label-radio">
+                            {data.title}
+                        </a>
+                    ) : (
+                        <p class="title">{data.title}</p>
+                    )
+                }
+
+                <p class="pledge">{data.pledgeTitle}</p>
             </div>
         </div>
         <p class="text">
-            {text}
+            {data.text}
         </p>
-        <div class="align">
-            <p class="left">{left}</p>
-            <span>left</span>
-        </div>
+        {
+            data.reward ? (
+                <div class="align">
+                    <p class="left">{data.left}</p>
+                    <span>left</span>
+                </div>
+            ) : (
+                ''
+            )
+        }
     </div>
-    <FormCardModal active={active}/>
+    <FormCardModal
+        active={data.active}
+        reward={data.reward}
+        pledge={data.pledge}
+    />
 </article>
 
 <style>
@@ -48,7 +67,8 @@ const { title, pledge, text, left, active } = Astro.props;
         margin-bottom: 2rem;
     }
 
-    .card a {
+    .card a,
+    .title {
         font-size: 1rem;
         font-weight: 600;
         color: black;
@@ -60,7 +80,6 @@ const { title, pledge, text, left, active } = Astro.props;
 
     .desactive a:hover {
         cursor: default;
-        
     }
 
     .pledge {

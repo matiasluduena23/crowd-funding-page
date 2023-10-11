@@ -3,10 +3,12 @@ import CardAbout from './CardAbout.astro';
 import { getCollection } from 'astro:content';
 import Modal from './Modal.astro';
 
-const allSupport = await getCollection('support');
+const allSupport = await getCollection('support', ({ data }) => {
+    return data.reward === true;
+});
 ---
 
-<section class="container">
+<section class="container about">
     <h2>About this project</h2>
     <p>
         The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
@@ -20,17 +22,8 @@ const allSupport = await getCollection('support');
         desk space below your computer to allow notepads, pens, and USB sticks
         to be stored under the stand.
     </p>
-    {
-        allSupport.map((card) => (
-            <CardAbout
-                title={card.data.title}
-                pledge={card.data.pledge}
-                text={card.data.text}
-                left={card.data.left}
-                active={card.data.active}
-            />
-        ))
-    }
+
+    {allSupport.map((card) => <CardAbout data={card.data} />)}
 
     <Modal />
 </section>

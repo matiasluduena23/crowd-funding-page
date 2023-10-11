@@ -1,9 +1,11 @@
 ---
-title: Bamboo Stand
-pledge: Pledge $25 or more
-text:
-    You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
-    you’ll be added to a special Backer member list.
-left: 101
+title: Pledge with no reward
+pledgeTitle: ''
+pledge:
+text: Choose to support us without a reward if you simply believe in our
+    project. As a backer, you will be signed up to receive product
+    updates via email.
+left:
 active: true
+reward: false
 ---
