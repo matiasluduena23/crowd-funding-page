@@ -6,20 +6,33 @@ import hamburger from '../../assets/icon-hamburger.svg';
 import closeMenu from '../../assets/icon-close-menu.svg';
 ---
 
-<nav class="flex">
-    <a href="/" class="icon">
-        <Image src={logo} alt="logo name" />
-    </a>
-    <button class="hamburger" aria-controls="nav-items" aria-expanded="false">
-        <Image src={hamburger} alt="hamburger icon" />
-    </button>
-    <NavItems />
+<nav class="">
+    <div class="container flex">
+        <a href="/" class="icon">
+            <Image src={logo} alt="logo name" />
+        </a>
+        <button
+            class="hamburger"
+            aria-controls="nav-items"
+            aria-expanded="false"
+        >
+            <Image src={hamburger} alt="hamburger icon" />
+        </button>
+        <NavItems />
+    </div>
 </nav>
 
 <style define:vars={{ menu: `url(${closeMenu.src})` }}>
     nav {
         padding-block: 2rem;
-        position: relative;
+        position: fixed;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .nav-scrolled {
+        background-color: #525151;
     }
 
     button {

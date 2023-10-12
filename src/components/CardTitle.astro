@@ -14,7 +14,12 @@ import Button from './Button.astro';
         A beautiful & handcrafted monitor stand to reduce neck and eye strain.
     </p>
     <div class="wrap-button flex">
-        <Button text="Back this project" width="70%" active={true}  id="back-project"/>
+        <Button
+            text="Back this project"
+            width="70%"
+            active={true}
+            id="back-project"
+        />
         <button class="bookmark">
             <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg"
                 ><g fill="none" fill-rule="evenodd"
@@ -46,6 +51,7 @@ import Button from './Button.astro';
         left: 0;
         right: 0;
         margin-inline: auto;
+        z-index: 0;
     }
 
     h1 {

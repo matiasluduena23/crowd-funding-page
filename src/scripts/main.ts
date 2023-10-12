@@ -14,6 +14,20 @@ window.addEventListener('resize', () =>{
     }
 })
 
+// add class in navbar on scrolled
+const navbar = document.querySelector('nav');
+const header = document.querySelector('header')
+
+const sectionObsever = new IntersectionObserver((entries, sectionObsever) => {
+    entries.forEach(entry => {
+        !entry.isIntersecting ?  navbar.classList.add('nav-scrolled')
+                              :  navbar.classList.remove('nav-scrolled')  
+    })
+}, {rootMargin: '-250px 0px 0px 0px'})
+
+sectionObsever.observe(header)
+
+
 // add class to bookmark button
 const buttonBookmark = document.querySelector('.bookmark')
 
@@ -98,7 +112,11 @@ document.querySelectorAll('#btn-submit').forEach((btn, index) => {
     if(btn.classList.contains('active')){
         btn.addEventListener('click',(e: Event)=> {
             e.preventDefault();
-            validInput(btn.previousElementSibling as HTMLInputElement)
+            if(validInput(btn.previousElementSibling as HTMLInputElement)){
+                modal?.close();
+                openDialogSubmit()
+                
+            }
             
         })
     }
@@ -116,11 +134,11 @@ function validInput(input: HTMLInputElement) {
 }
 
 function openDialogSubmit() {
-    const modal = document.querySelector('.modal') as HTMLDialogElement;
-    modal?.showModal()
+    document.querySelector('.form-submit').classList.add('form-active')
 }
 
 function closeDialogSubmit() {
-    const modal = document.querySelector('.modal') as HTMLDialogElement;
-    modal?.close()
+    document.querySelector('.form-submit').classList.remove('form-active')
 }
+
+document.querySelector('#btn-confirm').addEventListener('click', closeDialogSubmit)
