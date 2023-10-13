@@ -16,12 +16,12 @@ window.addEventListener('resize', () =>{
 
 // add class in navbar on scrolled
 const navbar = document.querySelector('nav');
-const header = document.querySelector('header')
+const header = document.querySelector('header') as Element;
 
 const sectionObsever = new IntersectionObserver((entries, sectionObsever) => {
     entries.forEach(entry => {
-        !entry.isIntersecting ?  navbar.classList.add('nav-scrolled')
-                              :  navbar.classList.remove('nav-scrolled')  
+        !entry.isIntersecting ?  navbar!.classList.add('nav-scrolled')
+                              :  navbar!.classList.remove('nav-scrolled')  
     })
 }, {rootMargin: '-250px 0px 0px 0px'})
 
@@ -56,9 +56,10 @@ aTags.forEach(item => item?.addEventListener('click', (e: Event) => {
     removeChecked();
     removeClassForms();
     if(e.target){
-        e.target.parentElement.previousElementSibling.setAttribute("checked", "");
-        e.target.parentElement.parentElement.parentElement.nextElementSibling.classList.add('active');
-    }
+        const element = e.target as HTMLElement;
+        element.parentElement?.previousElementSibling?.setAttribute("checked", "");
+        element.parentElement?.parentElement?.parentElement?.nextElementSibling?.classList.add('active');
+ }
  
  
 }))
@@ -134,11 +135,11 @@ function validInput(input: HTMLInputElement) {
 }
 
 function openDialogSubmit() {
-    document.querySelector('.form-submit').classList.add('form-active')
+    document.querySelector('.form-submit')!.classList.add('form-active')
 }
 
 function closeDialogSubmit() {
-    document.querySelector('.form-submit').classList.remove('form-active')
+    document.querySelector('.form-submit')!.classList.remove('form-active')
 }
 
-document.querySelector('#btn-confirm').addEventListener('click', closeDialogSubmit)
+document.querySelector('#btn-confirm')!.addEventListener('click', closeDialogSubmit)
